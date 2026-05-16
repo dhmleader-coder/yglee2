@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>YouTube Rising Finder | 급부상 영상 검색</title>
+    <meta name="description" content="키워드를 입력하여 유튜브에서 급부상하는 영상 5개를 실시간으로 확인하세요.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+        <div class="blob blob-3"></div>
+    </div>
+
+    <header>
+        <div class="logo">
+            <span class="gradient-text">Rising</span>Tube
+        </div>
+        <button id="settingsBtn" class="icon-btn" title="설정">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33 1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82 1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
+        </button>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>키워드 하나로 확인하는<br><span class="gradient-text">급부상 트렌드 영상</span></h1>
+            <p class="subtitle">관심 있는 키워드를 입력하면 현재 유튜브에서 가장 핫한 영상 5개를 골라드립니다.</p>
+            
+            <div class="search-container">
+                <input type="text" id="searchInput" placeholder="키워드를 입력하세요 (예: AI, 여행, 캠핑...)" autocomplete="off">
+                <button id="searchBtn">
+                    <span>검색하기</span>
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"></circle><line x1="21" y1="21" x2="16.65" y2="16.65"></line></svg>
+                </button>
+            </div>
+        </section>
+
+        <section id="resultsSection" class="results-grid">
+            <!-- Videos will be injected here -->
+             <div class="placeholder-text">검색어를 입력하고 트렌드를 확인해보세요!</div>
+        </section>
+    </main>
+
+    <!-- Settings Modal -->
+    <div id="settingsModal" class="modal">
+        <div class="modal-content glass">
+            <h2>설정</h2>
+            <div class="input-group">
+                <label for="apiKeyInput">YouTube API Key</label>
+                <input type="password" id="apiKeyInput" placeholder="API 키를 입력하세요">
+                <p class="help-text">키가 없으면 데모 데이터가 표시됩니다.</p>
+            </div>
+            <div class="modal-actions">
+                <button id="closeSettings" class="btn-secondary">닫기</button>
+                <button id="saveSettings" class="btn-primary">저장하기</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Loading Indicator -->
+    <div id="loader" class="loader-overlay hidden">
+        <div class="loader"></div>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
