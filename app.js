@@ -1,5 +1,5 @@
-const MY_FIXED_KEY = "YOUR_API_KEY_HERE";
-let apiKey = MY_FIXED_KEY || localStorage.getItem('youtube_api_key') || '';
+// 분리된 설정 파일(api_key.js)에서 API 키를 가져오거나 localStorage에서 가져옵니다.
+let apiKey = (typeof CONFIG !== 'undefined' && CONFIG.YOUTUBE_API_KEY) ? CONFIG.YOUTUBE_API_KEY : (localStorage.getItem('youtube_api_key') || '');
 
 // DOM Elements
 const searchInput = document.getElementById('searchInput');
